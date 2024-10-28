@@ -37,11 +37,16 @@ const VideoCard = ({video:{title,thumbnail,video,creator:{username,avatar}}}) =>
             setPlay(false);
           }
         }}
+        onError={(error) => console.error("Video load error:", error)}
+
       />
       ):(
         <TouchableOpacity 
         activeOpacity={0.7}
-        onPress={()=>{setPlay(true)}}
+        onPress={()=>{
+          console.log("Video URL:", video);
+          setPlay(true)
+        }}
         className="w-full h-60 rounded-xl mt-3
         relative justify-center items-center">
           <Image source={{uri:thumbnail}}
